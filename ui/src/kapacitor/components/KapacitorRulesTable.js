@@ -28,7 +28,7 @@ const KapacitorRulesTable = ({
   onDelete,
   onReadTickscript,
   onChangeRuleStatus,
-}) =>
+}) => (
   <div className="panel-body">
     <table className="table v-center">
       <thead>
@@ -59,8 +59,9 @@ const KapacitorRulesTable = ({
       </tbody>
     </table>
   </div>
+)
 
-const RuleRow = ({rule, source, onRead, onDelete, onChangeRuleStatus}) =>
+const RuleRow = ({rule, source, onRead, onDelete, onChangeRuleStatus}) => (
   <tr key={rule.id}>
     <td style={{width: colName}} className="monotype">
       <RuleTitle rule={rule} source={source} />
@@ -92,6 +93,12 @@ const RuleRow = ({rule, source, onRead, onDelete, onChangeRuleStatus}) =>
       </div>
     </td>
     <td style={{width: colActions}} className="text-right table-cell-nowrap">
+      <Link
+        className="btn btn-primary btn-xs"
+        to={`/sources/${source.id}/tickscript/${rule.id}`}
+      >
+        Edit TICKscript
+      </Link>
       <button className="btn btn-info btn-xs" onClick={() => onRead(rule)}>
         View TICKscript
       </button>
@@ -100,6 +107,7 @@ const RuleRow = ({rule, source, onRead, onDelete, onChangeRuleStatus}) =>
       </button>
     </td>
   </tr>
+)
 
 const RuleTitle = ({rule: {id, name, query}, source}) => {
   // no queryConfig means the rule was manually created outside of Chronograf
