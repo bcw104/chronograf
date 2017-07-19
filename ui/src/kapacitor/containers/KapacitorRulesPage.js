@@ -12,10 +12,6 @@ class KapacitorRulesPage extends Component {
       hasKapacitor: false,
       loading: true,
     }
-
-    this.handleDeleteRule = ::this.handleDeleteRule
-    this.handleRuleStatus = ::this.handleRuleStatus
-    this.handleCloseTickscript = ::this.handleCloseTickscript
   }
 
   async componentDidMount() {
@@ -51,9 +47,8 @@ class KapacitorRulesPage extends Component {
         rules={rules}
         hasKapacitor={hasKapacitor}
         loading={loading}
-        onDelete={this.handleDeleteRule}
-        onChangeRuleStatus={this.handleRuleStatus}
-        onCloseTickscript={this.handleCloseTickscript}
+        onDelete={::this.handleDeleteRule}
+        onChangeRuleStatus={::this.handleRuleStatus}
       />
     )
   }
