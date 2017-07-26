@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react'
 import TickscriptHeader from 'src/kapacitor/components/TickscriptHeader'
 import TickscriptEditor from 'src/kapacitor/components/TickscriptEditor'
+import classnames from 'classnames'
 
 const Tickscript = ({
   source,
@@ -30,6 +31,15 @@ const Tickscript = ({
     <div className="page-contents">
       <div className="tickscript-console">
         <div className="tickscript-console--output">
+          <div
+            className={classnames('tickscript-console--status', {
+              'tickscript-console--error': validation,
+            })}
+          >
+            {validation
+              ? <span className="icon alert-triangle" />
+              : <span className="icon checkmark" />}
+          </div>
           {validation
             ? <p>
                 {validation}

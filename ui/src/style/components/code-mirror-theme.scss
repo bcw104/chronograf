@@ -7,7 +7,7 @@
 
 */
 
-$tickscript-console-height: 120px;
+$tickscript-console-height: 90px;
 
 .tickscript-console,
 .tickscript-editor {
@@ -22,12 +22,14 @@ $tickscript-console-height: 120px;
   padding-top: 30px;
 }
 .tickscript-console--output {
-  padding: 0 60px;
+  border: 2px solid $g5-pepper;
+  border-bottom: 0;
+  padding: 0 30px 0 72px;
   font-family: $code-font;
   font-weight: 600;
   display: flex;
   align-items: center;
-  background-color: $g3-castle;
+  background-color: $g2-kevlar;
   position: relative;
   height: 100%;
   width: 100%;
@@ -35,6 +37,27 @@ $tickscript-console-height: 120px;
 
   > p {
     margin: 0;
+  }
+}
+.tickscript-console--status {
+  position: absolute;
+  height: $tickscript-console-height - 30px;
+  width: $tickscript-console-height - 29px;
+  top: 0;
+  left: 0;
+  background-color: $g3-castle;
+
+  .icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 20px;
+    color: $g8-storm;
+  }
+  &.tickscript-console--error .icon,
+  &.tickscript-console--error + p {
+    color: $c-dreamsicle;
   }
 }
 .tickscript-console--default {
@@ -52,6 +75,7 @@ $tickscript-console-height: 120px;
   height: 100%;
 }
 .cm-s-material.CodeMirror {
+  border: 2px solid $g5-pepper;
   border-radius: 0 0 $radius $radius;
   font-family: $code-font;
   background-color: $g2-kevlar;
